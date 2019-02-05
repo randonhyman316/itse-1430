@@ -1,5 +1,5 @@
 ﻿/*
- * Lab 1  
+ * Lab 1
  * Your Name
  */
 using System;
@@ -46,31 +46,30 @@ namespace HelloWorld
             //Console.Write("Hello ");
             //Console.WriteLine(name);
         }
-        private static void NewGame ()
+
+        private static void NewGame()
         {
             Console.WriteLine("Enter the name: ");
-            string name = Console.ReadLine();
+            name = Console.ReadLine();
 
             //Console.WriteLine("Do you own this? ");
             //string owned = Console.ReadLine();
-            bool owned = ReadBoolean("Owned (Y/NY)?");
+            owned = ReadBoolean("Owned (Y/N)?");
 
             //Console.WriteLine("Price? ");
             //string price = Console.ReadLine();
-            decimal price = ReadDecimal("Price?");
+            price = ReadDecimal("Price?");
 
             Console.WriteLine("Publisher? ");
-            string publisher = Console.ReadLine();
+            publisher = Console.ReadLine();
 
             //Console.WriteLine("Completed? ");
             //string completed = Console.ReadLine();
-            bool completed = ReadBoolean("Completed (Y/N)?");
-
+            completed = ReadBoolean("Completed (Y/N)?");
         }
 
         private static void DisplayGame()
         {
-            // var = string just quicker if the code looks like a string
             var literal1 = "Hello \"Bob\"";
             var path = "C:\\Windows\\System32";
             path += "\\Temp";
@@ -80,7 +79,7 @@ namespace HelloWorld
             Console.WriteLine("Name" + name);
 
             // 2. String Format
-            string str = String.Format("Price: {0:C}", price);
+            var str = String.Format("Price: {0:C}", price);
             Console.WriteLine(str);
             //Console.WriteLine("Price: $" + price);
 
@@ -106,8 +105,8 @@ namespace HelloWorld
             10.ToString(); // "10"
 
             //Is string empty?
-            string input = null;
-            int length = input.Length;
+            string input = "";
+            //int length = input.Length;
             bool isEmpty;
 
             // 1.
@@ -146,8 +145,10 @@ namespace HelloWorld
 
             input = input.PadLeft(10);
             input = input.PadRight(10, '-');
+
         }
-        private static bool ReadBoolean ( string message)
+
+        private static bool ReadBoolean( string message )
         {
             do
             {
@@ -157,19 +158,19 @@ namespace HelloWorld
                 //Validate it is a boolean
                 if (result == "Y")
                     return true;
-                if (result == "N")
+                if (result == "N") 
                     return false;
 
                 //switch (result)
                 //{
                 //    case "Y":
-                //    case "y": return true;                  
-//
-                //    case "N": return false;  
+                //    case "y": return true;
+
+                //    case "N": 
                 //    case "n": return false;
-//
-                 //   default: Console.WriteLine("Enter Y or N"); break;
-               // };
+
+                //    default: Console.WriteLine("Enter Y or N"); break;
+                //};
 
                 //if (result == "Y" || "y")
                 //if (result == "Y" || result == "y")
@@ -191,21 +192,44 @@ namespace HelloWorld
                 Console.WriteLine(message);
                 string value = Console.ReadLine();
 
-
                 //decimal result;
                 ///if (Decimal.TryParse(value, out result))            
-                if (Decimal.TryParse(value, out decimal result))
+                if (Decimal.TryParse(value, out var result))
                     return result;
 
                 Console.WriteLine("Enter a valid decimal value");
             };
         }
 
+        private static void PlayWithArrays ()
+        {
+            //int size = 100;
+            int[] prices = new int[100];
+            for (var index = 0; index < prices.Length; ++index)
+            {
+                prices[index] = index + 1;
+            };
+
+            DisplayArray(prices);
+
+            var input = "field1,field2,field3;field4,,field5";
+            var fields = input.Split(',', ';');
+        }
+
+        private static void DisplayArray ( int[] values/*, int count*/ )
+        {
+            //for (var index = 0; index < values.Length; ++index)
+            foreach (var item in values)
+            {
+                //Console.WriteLine(values[index]);
+                Console.WriteLine(item);
+            };
+        }
+        
         private static string name;
         private static string publisher;
         private static decimal price;
         private static bool owned;
         private static bool completed;
-
     }
-}                                                                                                                                     
+}
