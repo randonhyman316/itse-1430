@@ -1,19 +1,15 @@
-This folder contains a skeleton of what your repository should look like. Copy this entire structure into the root of your repository.
+# ITSE 1430 - Spring 2018
 
-## Start Visual Studio
+This repository contains the class material for this semester. Refer to [ITSE1430](https://github.com/michaeltccd/ITSE1430) for general information on the course.
 
-1. Start Visual Studio.
-1. If you are connecting to a new repository then [clone](https://github.com/michaeltccd/ITSE1430-docs/tree/master/documentation/github/getting-started#cloning-a-repository) it.  
-1. If you are connecting to an existing repository.
-   1. If you have connected to it before then it may appear on `Recent` on the `Start Page` for Visual Studio. Click it to connect.
-   1. If it is not there yet then you need to [open](https://github.com/michaeltccd/ITSE1430-docs/tree/master/documentation/github/getting-started#opening-a-repository) it.
-   1. [Pull](https://github.com/michaeltccd/ITSE1430-docs/tree/master/documentation/github/getting-started#pull-a-repository) the repository to ensure any changes in GitHub are downloaded locally.
+## ClassWork
 
-## Shutting Down Visual Studio
+Work done while in class will be stored in this folder.
 
-Before finishing with Visual Studio be sure to push any changes back to GitHub.
+## Labs
 
-*Note: This is only necessary if you may potentially work on this repository on another machine later.*
+Lab assignments will be placed in here.
 
-1. [Push](https://github.com/michaeltccd/ITSE1430-docs/blob/master/documentation/github/getting-started/readme.md#pushing-changes) changes back to GitHub.
-1. Be sure that the success notification is shown before shutting down Visual Studio.
+## Template
+
+Contains a template for setting up your own repository for this class.
