@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{72A7707D-021E-4D04-B757-546A3B134F73}</ProjectGuid>
+    <ProjectGuid>{20D9555F-82BE-46AA-886B-286D02EC7BF9}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>GameManager.Host.Winforms</RootNamespace>
     <AssemblyName>GameManager.Host.Winforms</AssemblyName>
@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GameForm.Designer.cs">
+      <DependentUpon>GameForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +60,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GameForm.resx">
+      <DependentUpon>GameForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -81,12 +90,9 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GameManager\GameManager.csproj">
-      <Project>{d6e15247-6020-4469-a715-d13551afd749}</Project>
+      <Project>{a2fd1153-8361-4388-8234-0f9463049ae5}</Project>
       <Name>GameManager</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

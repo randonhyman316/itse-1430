@@ -134,9 +134,9 @@ Office Location: TBD
 | 6 | 2/18 | Windows Forms and Controls | 14 | |
 | | | Child Forms and More Controls | 15 | |
 | 7 | 2/25 | Inheritance and Constructors | 11 | |
-| | | Events and Form Lifetime | 15 | |
+| | | Events and Form Lifetime | 15 | Quiz 1 |
 | 8 | 3/4 | Exceptions and Error Handling | |
-| | | Layouts and Validation | 15 | Quiz 1 |
+| | | Layouts and Validation | 15 | |
 | 9 | 3/11 | Spring Break
 | 10 | 3/18 | Interfaces and Initializers | 12 | Lab 2 |
 | | | Lists, Collections and Generic Types | 9, 20	| | 
