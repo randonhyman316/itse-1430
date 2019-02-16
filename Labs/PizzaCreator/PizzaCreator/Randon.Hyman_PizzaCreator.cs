@@ -1,5 +1,6 @@
 ﻿/*
-    Lab 1 ITSE1430
+    Lab 1 
+    ITSE1430
     Randon Hyman
     Feb 11, 2019
 
@@ -43,6 +44,7 @@ namespace PizzaCreator
             MenuChoice();
         }
 
+        // Order Topics
         private static void StartOrder()
         {
             isOrderInProgress = true;
@@ -57,6 +59,7 @@ namespace PizzaCreator
             DisplayOrder();
         }
 
+        // Creates the order
         private static void NewOrder()
         {
             if (isOrderInProgress)
@@ -75,6 +78,7 @@ namespace PizzaCreator
             }
         }
 
+        // 1st switch statement 
         private static void MenuChoice()
         {
             bool userQuit = false;
@@ -124,15 +128,16 @@ namespace PizzaCreator
             peppersOption = false;
         }
 
+        // Pizza size switch statement
         private static void PizzaSize()
         {
             bool selectedOne = false;
             while (!selectedOne)
             {
                 Console.WriteLine("What size of pizza do you want?\n");
-                DisplaySelectedOption("S = Small", pizzaChoice == "S");
-                DisplaySelectedOption("M = Medium", pizzaChoice == "M");
-                DisplaySelectedOption("L = Large", pizzaChoice == "L");
+                MenuSelection("S = Small", pizzaChoice == "S");
+                MenuSelection("M = Medium", pizzaChoice == "M");
+                MenuSelection("L = Large", pizzaChoice == "L");
                 string result = Console.ReadLine().ToUpper();
 
                 switch (result)
@@ -156,6 +161,7 @@ namespace PizzaCreator
             }
         }
 
+        // Pizza meats switch statement
         private static void Meats()
         {
             bool meatDone = false;
@@ -163,10 +169,10 @@ namespace PizzaCreator
             while (!meatDone)
             {
                 Console.WriteLine("What kinda of Meats? $" + pricePerMeat + " Please pick one. \n");
-                DisplaySelectedOption("B = Bacon", baconOption);
-                DisplaySelectedOption("H = Ham", hamOption);
-                DisplaySelectedOption("P = Pepperoni", pepperoniOption);
-                DisplaySelectedOption("S = Sausage", sausageOption);
+                MenuSelection("B = Bacon", baconOption);
+                MenuSelection("H = Ham", hamOption);
+                MenuSelection("P = Pepperoni", pepperoniOption);
+                MenuSelection("S = Sausage", sausageOption);
                 Console.WriteLine("D = Done");
                 string result = Console.ReadLine().ToUpper();
                 switch (result)
@@ -193,6 +199,7 @@ namespace PizzaCreator
             }
         }
 
+        // Pizza vegetables switch statement
         private static void Vegetables()
         {
             bool veggieDone = false;
@@ -200,10 +207,10 @@ namespace PizzaCreator
             while (!veggieDone)
             {
                 Console.WriteLine("Which Vegetables do you want? $" + pricePerVeggie + " Pick one \n");
-                DisplaySelectedOption("B = Black Olives", oliveOption);
-                DisplaySelectedOption("M = Mushrooms", mushroomsOption);
-                DisplaySelectedOption("O = Onions", onionsOption);
-                DisplaySelectedOption("P = Peppers", peppersOption);
+                MenuSelection("B = Black Olives", oliveOption);
+                MenuSelection("M = Mushrooms", mushroomsOption);
+                MenuSelection("O = Onions", onionsOption);
+                MenuSelection("P = Peppers", peppersOption);
                 Console.WriteLine("D = Done");
                 string result = Console.ReadLine().ToUpper();
                 switch (result)
@@ -230,6 +237,7 @@ namespace PizzaCreator
             }
         }
 
+        // Pizza sauce switch statement
         private static void Sauce()
         {
 
@@ -238,9 +246,9 @@ namespace PizzaCreator
             {
 
                 Console.WriteLine("What kind of sauce do you want?\n");
-                DisplaySelectedOption("T = Traditional", sauceChoice == "T");
-                DisplaySelectedOption("G = Garlic", sauceChoice == "G");
-                DisplaySelectedOption("O = Oregano", sauceChoice == "O");
+                MenuSelection("T = Traditional", sauceChoice == "T");
+                MenuSelection("G = Garlic", sauceChoice == "G");
+                MenuSelection("O = Oregano", sauceChoice == "O");
                 string sauceResult = Console.ReadLine().ToUpper();
 
                 switch (sauceResult)
@@ -264,14 +272,15 @@ namespace PizzaCreator
             }
         }
 
+        // Pizza cheese switch statement
         private static void Cheese()
         {
             bool selectedOne = false;
             while (!selectedOne)
             {
                 Console.WriteLine("What kind of cheese do you want?\n");
-                DisplaySelectedOption("R = Regular", cheeseChoice == "R");
-                DisplaySelectedOption("E = Extra", cheeseChoice == "E");
+                MenuSelection("R = Regular", cheeseChoice == "R");
+                MenuSelection("E = Extra", cheeseChoice == "E");
                 string result = Console.ReadLine().ToUpper();
                 switch (result)
                 {
@@ -290,14 +299,15 @@ namespace PizzaCreator
             }
         }
 
+        // Pizza delivery switch statement
         private static void Delivery()
         {
             bool selectedOne = false;
             while (!selectedOne)
             {
                 Console.WriteLine("Do you want take out or delivery?\n");
-                DisplaySelectedOption("T = Take Out", deliveryChoice == "T");
-                DisplaySelectedOption("D = Delivery", deliveryChoice == "D");
+                MenuSelection("T = Take Out", deliveryChoice == "T");
+                MenuSelection("D = Delivery", deliveryChoice == "D");
                 string result = Console.ReadLine().ToUpper();
                 switch (result)
                 {
@@ -316,6 +326,7 @@ namespace PizzaCreator
             }
         }
 
+        // Allows to edit past orders made
         private static void ModifyOrder()
         {
             if (isOrderInProgress)
@@ -328,6 +339,7 @@ namespace PizzaCreator
             }
         }
 
+        //Shows the orders made 
         private static void DisplayOrder()
         {
             Console.WriteLine("-----------------------------------------");
@@ -419,11 +431,13 @@ namespace PizzaCreator
             Console.WriteLine("\n\n");
         }
 
-        private static void DisplaySelectedOption( string displayLabel, bool hasOption )
+        // Show which selection the user has made
+        private static void MenuSelection( string displayLabel, bool hasOption )
         {
             Console.WriteLine(displayLabel + (hasOption ? selectedItemUi : unselectedItemUi));
         }
 
+        // List pizza main menu
         private static void DisplayMenu()
         {
             Console.WriteLine("Pizza Creator");
@@ -435,6 +449,7 @@ namespace PizzaCreator
             Console.WriteLine("4.Quit");
         }
 
+        // Calculate all topping and selections made throughtout the process
         private static decimal CalculateTotal()
         {
             decimal pizzaTotal = 0;
@@ -448,6 +463,7 @@ namespace PizzaCreator
             return pizzaTotal;
         }
 
+        //Calculate price for each pizza size
         private static decimal CalculateSizeOfPizzaTotal()
         {
             switch (pizzaChoice)
@@ -463,6 +479,7 @@ namespace PizzaCreator
             }
         }
 
+        //Calculate price for each pizza meat selection
         private static decimal CalculateMeatTotal()
         {
             decimal total = 0;
@@ -483,7 +500,7 @@ namespace PizzaCreator
             totalVeggies += peppersOption ? pricePerVeggie : 0;
             return totalVeggies;
         }
-
+        // price switch for cheese
         private static decimal CalculateCheeseTotal()
         {
             switch (cheeseChoice)
@@ -497,6 +514,7 @@ namespace PizzaCreator
             }
         }
 
+        // price switch for sauce
         private static decimal CalculateSauceTotal()
         {
             switch (sauceChoice)
@@ -512,6 +530,7 @@ namespace PizzaCreator
             }
         }
 
+        // price switch for delivery
         private static decimal CalculateDeliveryTotal()
         {
             switch (deliveryChoice)
