@@ -31,7 +31,7 @@ namespace GameManager.Host.Winforms
                 /* is empty*/;
             if (game.Name.Length == 0)
                 /* is empty */
-                ;
+                
 
             var isCool = game.IsCoolGame;
             //game.IsCoolGame = false;
@@ -63,6 +63,14 @@ namespace GameManager.Host.Winforms
         private void OnGameAdd( object sender, EventArgs e )
         {
             //Display UI
+            var form = new GameForm();
+
+            //Modelesss
+            //form.Show();
+
+            //Modal
+            if (form.ShowDialog() != DialogResult.OK)
+                return;
 
             //If OK then "add" to system
         }
