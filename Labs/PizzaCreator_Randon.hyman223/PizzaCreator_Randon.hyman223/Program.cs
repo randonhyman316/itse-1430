@@ -16,7 +16,7 @@ namespace PizzaCreator_Randon.hyman223
     class Program
     {
         private static bool isOrderInProgress = false;
-        private static decimal total = 0;
+        private static decimal TotalPrice = 0;
         private static string selectedItemUi = "[X]";
         private static string unselectedItemUi = "[ ]";
 
@@ -54,7 +54,7 @@ namespace PizzaCreator_Randon.hyman223
             Cheese();
             Delivery();
 
-            total += CalculateTotal();
+            TotalPrice += CalculateTotal();
             DisplayOrder();
         }
 
@@ -338,12 +338,12 @@ namespace PizzaCreator_Randon.hyman223
             }
         }
 
-        //Shows the orders made 
+        //Shows how the orders are made 
         private static void DisplayOrder()
         {
-            Console.WriteLine("-----------------------------------------");
-            Console.WriteLine("\tCurrent Order");
-            switch (pizzaChoice)
+        Console.WriteLine("-----------------------------------------");
+        Console.WriteLine("\tCurrent Order");
+        switch (pizzaChoice)
             {
                 case "S":
                 Console.WriteLine("Small Pizza \t\t\t$" + CalculateSizeOfPizzaTotal());
@@ -355,7 +355,7 @@ namespace PizzaCreator_Randon.hyman223
                 Console.WriteLine("Large Pizza \t\t\t$" + CalculateSizeOfPizzaTotal());
                 break;
             }
-            switch (deliveryChoice)
+        switch (deliveryChoice)
             {
                 case "T":
                 Console.WriteLine("Take Out ");
@@ -366,43 +366,43 @@ namespace PizzaCreator_Randon.hyman223
             }
             Console.WriteLine("Meats");
 
-            if (baconOption)
+        if (baconOption)
             {
                 Console.WriteLine("\t Bacon\t\t\t$" + pricePerMeat);
             }
-            if (hamOption)
+        if (hamOption)
             {
                 Console.WriteLine("\t Ham\t\t\t$" + pricePerMeat);
             }
-            if (pepperoniOption)
+        if (pepperoniOption)
             {
                 Console.WriteLine("\t Pepperoni\t\t$" + pricePerMeat);
             }
-            if (sausageOption)
+        if (sausageOption)
             {
                 Console.WriteLine("\t Sausage\t\t$" + pricePerMeat);
             }
 
             Console.WriteLine("Vegetables");
 
-            if (oliveOption)
+        if (oliveOption)
             {
                 Console.WriteLine("\t Black Olives\t\t$" + pricePerVeggie);
             }
-            if (mushroomsOption)
+        if (mushroomsOption)
             {
                 Console.WriteLine("\t Mushrooms\t\t$" + pricePerVeggie);
             }
-            if (onionsOption)
+        if (onionsOption)
             {
                 Console.WriteLine("\t Onions\t\t\t$" + pricePerVeggie);
             }
-            if (peppersOption)
+        if (peppersOption)
             {
                 Console.WriteLine("\t Peppers\t\t$" + pricePerVeggie);
             }
 
-            switch (cheeseChoice)
+        switch (cheeseChoice)
             {
                 case "R":
                 Console.WriteLine("Regular Cheese \t\t\t");
@@ -413,7 +413,7 @@ namespace PizzaCreator_Randon.hyman223
             }
             Console.WriteLine("Sauce");
 
-            switch (sauceChoice)
+        switch (sauceChoice)
             {
                 case "T":
                 Console.WriteLine("\t Traditional \t\t$" + CalculateSauceTotal());
@@ -426,11 +426,11 @@ namespace PizzaCreator_Randon.hyman223
                 break;
             }
             Console.WriteLine("-----------------------------------------");
-            Console.WriteLine("Total \t\t\t\t$" + total);
+            Console.WriteLine("Total \t\t\t\t$" + TotalPrice);
             Console.WriteLine("\n\n");
         }
 
-        // Show which selection the user has made
+        // Shows which selection the user has made
         private static void MenuSelection( string displayLabel, bool hasOption )
         {
             Console.WriteLine(displayLabel + (hasOption ? selectedItemUi : unselectedItemUi));
@@ -440,7 +440,7 @@ namespace PizzaCreator_Randon.hyman223
         private static void DisplayMenu()
         {
             Console.WriteLine("Pizza Creator");
-            string cartString = String.Format(" -----------------------------\t |CART:{0:c}|", total);
+            string cartString = String.Format(" -----------------------------\t |CART:{0:c}|", TotalPrice);
             Console.WriteLine(cartString);
             Console.WriteLine("1.New Order");
             Console.WriteLine("2.Modify Order");
@@ -490,6 +490,7 @@ namespace PizzaCreator_Randon.hyman223
             return total;
         }
 
+        //Calculate price for each veggies selection
         private static decimal CalculateVeggiesTotal()
         {
             decimal totalVeggies = 0;
