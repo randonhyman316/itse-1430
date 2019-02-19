@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+ * Itse 1430
+ * Randon Hyman
+ * Lab 1
+ * 2/11/19
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
