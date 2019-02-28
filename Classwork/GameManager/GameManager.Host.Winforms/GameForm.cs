@@ -78,5 +78,15 @@ namespace GameManager.Host.Winforms
             if (Game != null)
                 LoadData(Game);
         }
+
+        private void _txtPublisher_TextChanged( object sender, EventArgs e )
+        {
+
+        }
+
+        private void GameForm_Load( object sender, EventArgs e )
+        {
+
+        }
     }
 }

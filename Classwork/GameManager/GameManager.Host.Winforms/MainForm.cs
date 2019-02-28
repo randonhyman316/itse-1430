@@ -71,11 +71,7 @@ namespace GameManager.Host.Winforms
             Close();
         }
 
-        private void OnHelpAbout ( object sender, EventArgs e )
-        {
-            var form = new AboutBox();
-            form.ShowDialog();
-        }
+
 
         private void BindList ()
         {

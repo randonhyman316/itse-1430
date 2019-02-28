@@ -120,17 +120,16 @@
             // _miHelpAbout
             // 
             this._miHelpAbout.Name = "_miHelpAbout";
-            this._miHelpAbout.Size = new System.Drawing.Size(107, 22);
-            this._miHelpAbout.Text = "&About";
-            this._miHelpAbout.Click += new System.EventHandler(this.OnHelpAbout);
+            this._miHelpAbout.Size = new System.Drawing.Size(180, 22);
             // 
             // _listGames
             // 
             this._listGames.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._listGames.ForeColor = System.Drawing.SystemColors.WindowText;
             this._listGames.FormattingEnabled = true;
             this._listGames.Location = new System.Drawing.Point(0, 24);
             this._listGames.Name = "_listGames";
-            this._listGames.Size = new System.Drawing.Size(800, 426);
+            this._listGames.Size = new System.Drawing.Size(800, 404);
             this._listGames.TabIndex = 1;
             this._listGames.SelectedIndexChanged += new System.EventHandler(this.OnGameSelected);
             this._listGames.DoubleClick += new System.EventHandler(this.OnGameEdit);
@@ -139,7 +138,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 428);
             this.Controls.Add(this._listGames);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
