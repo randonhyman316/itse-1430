@@ -84,7 +84,7 @@ namespace GameManager.Host.Winforms
 
             //nameof(Game.Name) == "Name"
             _listGames.DisplayMember = nameof(Game.Name);
-
+            
             //_listGames.Items.AddRange(_games);
             foreach (var game in _games)
             {
@@ -202,6 +202,16 @@ namespace GameManager.Host.Winforms
         private void OnGameSelected ( object sender, EventArgs e )
         {
 
+        }
+
+        protected override void OnFormClosing( FormClosingEventArgs e )
+        {
+            if (MessageBox.Show(this, "Are you sure?", "Close", MessageBoxButtons.YesNo) == DialogResult.No)
+            {
+                e.Cancel = true;
+                return;
+            };
+            base.OnFormClosing(e);
         }
     }
 }

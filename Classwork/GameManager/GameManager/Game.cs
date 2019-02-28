@@ -5,7 +5,7 @@ namespace GameManager
     /// <summary>Represents a game.</summary>
     public class Game
     {
-        //Ctors
+        #region Constructors
 
         //Default, no return type
         // 1) Cannot be called directly
@@ -29,6 +29,7 @@ namespace GameManager
             Name = name;
             Price = price;
         }
+        #endregion
 
         /// <summary>Name of the game.</summary>
         public string Name
@@ -85,7 +86,12 @@ namespace GameManager
             //NOT DETERMINISTIC - should have been a method
             var now = DateTime.Now;
         }
-        
+
+        public override string ToString()
+        {
+            return Name;
+        }
+
         //Can init the data as well
         //public string[] Genres { get; set; }
 
@@ -101,7 +107,7 @@ namespace GameManager
         //    }
         //}
         //private string[] _genres;
-        
+
         //public string[] genres = new string[10];
         //private decimal realPrice = Price;
 
