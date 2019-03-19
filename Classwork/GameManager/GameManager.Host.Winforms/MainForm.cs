@@ -43,7 +43,7 @@ namespace GameManager.Host.Winforms
         private void BindList()
         {
             //Bind games to listbox
-            _listGames.Items.Clear();            
+            _listGames.Items.Clear();
             _listGames.DisplayMember = nameof(Game.Name);
 
             //Can use AddRange now that we don't care about null items
@@ -60,16 +60,57 @@ namespace GameManager.Host.Winforms
             //Display UI
             var form = new GameForm();
 
-            //Modal
-            if (form.ShowDialog(this) != DialogResult.OK)
-                return;
+            while (true)
+            {
+                //Modal
+                if (form.ShowDialog(this) != DialogResult.OK)
+                    return;
 
-            //Add
-            //_games[GetNextEmptyGame()] = form.Game;
-            _games.Add(form.Game);
+                //Add
+                try
+                {
+                    //Anything in here that raises an exception will
+                    //be sent to the catch block
+
+                    OnSafeAdd(form);
+                    break;
+                } catch (InvalidOperationException)
+                {
+                    MessageBox.Show(this, "Choose a better game.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                } catch (Exception ex)
+                {
+                    //Recover from errors
+                    DisplayError(ex);
+                };
+            };
 
             BindList();
-        }        
+        }
+
+        private void DisplayError( Exception ex )
+        {
+            MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void OnSafeAdd( GameForm form )
+        {
+            try
+            {
+                //_games[GetNextEmptyGame()] = form.Game;
+                _games.Add(form.Game);
+            } catch (NotImplementedException e)
+            {
+                //Rewriting an exception
+                throw new Exception("Not implemented yet", e);
+            } catch (Exception e)
+            {
+                //Log a message 
+
+                //Rethrow exception - wrong way
+                //throw e;
+                throw;
+            };
+        }
 
         private GameDatabase _games = new GameDatabase();
 
@@ -84,13 +125,24 @@ namespace GameManager.Host.Winforms
             //Game to edit
             form.Game = game;
 
-            if (form.ShowDialog(this) != DialogResult.OK)
-                return;
+            while (true)
+            {
+                if (form.ShowDialog(this) != DialogResult.OK)
+                    return;
 
-            //UpdateGame(game, form.Game);            
-            _games.Update(game.Id, form.Game);
+                try
+                {
+                    //UpdateGame(game, form.Game);            
+                    _games.Update(game.Id, form.Game);
+                    break;
+                } catch (Exception ex)
+                {
+                    DisplayError(ex);
+                };
+            };
+
             BindList();
-        }        
+        }
 
         private void OnGameDelete( object sender, EventArgs e )
         {
@@ -105,10 +157,16 @@ namespace GameManager.Host.Winforms
                                MessageBoxIcon.Question) != DialogResult.Yes)
                 return;
 
-            //DeleteGame(selected);
-            _games.Delete(selected.Id);
+            try
+            {
+                //DeleteGame(selected);
+                _games.Delete(selected.Id);
+            } catch (Exception ex)
+            {
+                DisplayError(ex);  
+            };
             BindList();
-        }        
+        }
 
         private Game GetSelectedGame()
         {
@@ -138,7 +196,7 @@ namespace GameManager.Host.Winforms
                 return;
             };
             base.OnFormClosing(e);
-        }        
+        }
 
         #region Unused Code (Demo only)
 
