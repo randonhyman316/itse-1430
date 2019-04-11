@@ -74,11 +74,11 @@ namespace GameManager.FileSystem
 
             //Streams are very low level
             //var stream = File.Open();
-
+            
             //Must clean up streams and reader/writers
             //Use a reader/writer - text stream
             using (StreamReader reader = File.OpenText(_filename))
-            {
+            {                
                 while (!reader.EndOfStream)
                 {
                     var line = reader.ReadLine();
@@ -86,6 +86,12 @@ namespace GameManager.FileSystem
                     if (game.Id == id)
                         return game;
                 };
+
+                //NEVER do this
+                //var x = 10l;
+                //reader.Close();
+                //reader.Close();
+                //reader.Dispose();
 
                 return null;
             };
