@@ -18,7 +18,7 @@ namespace GameManager.Sql
         private readonly string _connectionString;
 
         protected override Game AddCore( Game game )
-        {
+        {SQLDebugging tarrget without attact tp pro
             using (var connection = GetConnection())
             {
                 connection.Open();
