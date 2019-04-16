@@ -111,8 +111,8 @@ namespace GameManager.Sql
 
         protected override Game GetCore( int id )
         {
-            //throw new NotImplementedException();
-            return null;
+            //HACK: Doing it wrong way
+            return GetAllCore().FirstOrDefault(g => g.Id == id);
         }
 
         protected override Game UpdateCore( int id, Game game )

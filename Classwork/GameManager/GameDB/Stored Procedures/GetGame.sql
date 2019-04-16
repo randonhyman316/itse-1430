@@ -11,7 +11,7 @@ CREATE PROCEDURE [dbo].[GetGame]
 AS BEGIN
 	SET NOCOUNT ON;
 
-    SELECT Name, Description, Price, Owned, Completed
+    SELECT Id, Name, Description, Price, Owned, Completed
     FROM Games
     WHERE Id = @id
 END

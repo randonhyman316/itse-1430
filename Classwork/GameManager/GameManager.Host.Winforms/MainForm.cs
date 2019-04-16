@@ -45,10 +45,10 @@ namespace GameManager.Host.Winforms
             _games = new SqlGameDatabase(connString.ConnectionString);
 
             //Seed if database is empty
-            var games = _games.GetAll();
-            if (games.Count() == 0)
-                //SeedDatabase.Seed(_games);
-                _games.Seed();
+            //var games = _games.GetAll();
+            //if (games.Count() == 0)
+            //    //SeedDatabase.Seed(_games);
+            //    _games.Seed();
 
             BindList();
         }

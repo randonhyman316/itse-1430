@@ -13,7 +13,7 @@ AS BEGIN
 
     SET @name = LTRIM(RTRIM(ISNULL(@name, '')))
 
-    SELECT Name, Description, Price, Owned, Completed
+    SELECT Id, Name, Description, Price, Owned, Completed
     FROM Games
     WHERE Name = @name
 END
